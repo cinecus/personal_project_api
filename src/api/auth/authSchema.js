@@ -1,4 +1,3 @@
-const Joi = require('joi')
 const mongoose = require('mongoose')
 const moment = require('moment')
 
@@ -18,8 +17,3 @@ const authSchema = mongoose.Schema({
 
 exports.AuthSchema = mongoose.model('user', authSchema)
 
-exports.sch_register = Joi.object().keys({
-    username: Joi.string().required(),
-    password: Joi.string().required(),
-    device_id: Joi.string().required()
-})
