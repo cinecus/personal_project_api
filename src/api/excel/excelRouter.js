@@ -5,7 +5,7 @@ const multer = require('../../middleware/multer')
 
 const excelRouter = Router()
 
-excelRouter.get('/import',
+excelRouter.post('/import',
     multer('excel').single('file_upload'),
     validate_token(),
     excelController.importExcel
