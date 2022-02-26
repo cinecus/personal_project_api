@@ -29,10 +29,10 @@ app.use((req, res, next) => {
     next()
 })
 
-const whitelist = ['http://localhost:3000']
+const whitelist = ['http://localhost:3000', 'http://localhost:8000']
 const corsOptions = {
     origin: function (origin, callback) {
-        if (whitelist.indexOf(origin) !== -1) {
+        if (whitelist.indexOf(origin) !== -1 || !origin) {
             callback(null, true)
         } else {
             callback(debug('Not allowed by CORS'))
