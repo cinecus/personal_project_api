@@ -37,6 +37,7 @@
     "nodemon": "^2.0.15",
     "request-promise": "^4.2.6",
     "short-uuid": "^4.2.0",
-    "winston": "^3.3.4"
+    "winston": "^3.3.4",
+    "xlsx": "^0.18.2"
   }
 }

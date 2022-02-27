@@ -11,4 +11,9 @@ excelRouter.post('/import',
     excelController.importExcel
 )
 
+excelRouter.post('/export',
+    validate_token(),
+    excelController.exportExcel
+)
+
 module.exports = excelRouter
