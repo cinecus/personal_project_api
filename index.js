@@ -29,7 +29,7 @@ app.use((req, res, next) => {
     next()
 })
 
-const whitelist = ['http://localhost:3000', 'http://localhost:8000']
+const whitelist = ['http://localhost:3000', 'http://localhost:8000', 'https://cinecus-project.et.r.appspot.com']
 const corsOptions = {
     origin: function (origin, callback) {
         if (whitelist.indexOf(origin) !== -1 || !origin) {
