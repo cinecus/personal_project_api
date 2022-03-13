@@ -8,7 +8,7 @@ class excelController {
         try {
             const file = req.file
             if (!!file) {
-                const result = excelToJson({
+                const imported = excelToJson({
                     sourceFile: file.path,
                     header: {
                         rows: 1
@@ -18,13 +18,15 @@ class excelController {
                     }
                 })
                 // console.log('result', result)
-                const header = Object.keys(result.Sheet1[0])
+                const header = Object.keys(imported.Sheet1[0])
+                const data = imported.Sheet1.map((el, i) => ({ ID: i + 1, ...el }))
                 await fs.unlinkSync(file.path)
-                success(res, 'success', { data: result.Sheet1, header })
+                success(res, 'success', { data, header: ['ID', ...header] })
             } else {
                 failed(res, 'Network Error 404')
             }
         } catch (error) {
+            console.log('error', error)
             failed(res, 'Network Error 404')
         }
 
